@@ -1,0 +1,95 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: thanks path 1
+  steps:
+  - user: |
+      Hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      Μπορείς να μου πεις λίγα λόγια για το τμήμα πληροφορικής?
+    intent: question_history
+  - action: utter_answer_about_history
+  - user: |
+      ευχαριστώ
+    intent: give_thanks
+  - action: utter_answer_thanks
+
+- story: schedule path 1
+  steps:
+  - user: |
+      greetings!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      ποτε εχουμε μαθηματα αυτο το εξαμηνο
+    intent: question_schedule
+  - action: utter_answer_about_schedule
+  
+- story: history path 1
+  steps:
+  - user: |
+      Γεια!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      πες μου καποια πραγματα για την ιστορια του τμηματος
+    intent: question_history
+  - action: utter_answer_about_history
+
+- story: location path 1
+  steps:
+  - user: |
+      γεια σου
+    intent: greet
+  - action: utter_greet
+  - user: |
+      που βρισκεται το csd auth
+    intent: question_location
+  - action: utter_answer_about_location
+
+- story: internship path 1
+  steps:
+  - user: |
+      γεια
+    intent: greet
+  - action: utter_greet
+  - user: |
+      θελω να μου πεις για την πρακτικη στο τμημα
+    intent: question_internship
+  - action: utter_answer_about_internship
+  - user: |
+      ευχαριστώ
+    intent: give_thanks
+  - action: utter_answer_thanks
+
+- story: study guide path 1
+  steps:
+  - user: |
+      χελλοου
+    intent: greet
+  - action: utter_greet
+  - user: |
+      που μπορω να βρω τον οδηγο σπουδων;
+    intent: question_study_guide
+  - action: utter_answer_about_study_guide
+  - user: |
+      ευχαριστώ
+    intent: give_thanks
+  - action: utter_answer_thanks
+
+- story: say goodbye
+  steps:
+  - user: |
+      τα λεμε!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      είσαι bot?
+    intent: bot_challenge
+  - action: utter_iamabot
