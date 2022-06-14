@@ -94,3 +94,35 @@ stories:
   - action: utter_greet
   - intent: question_schedule_secretary
   - action: utter_answer_about_schedule_secretary
+- story: interactive_story_1
+  steps:
+  - intent: question_courses
+    entities:
+    - course: σηματα συστηματα
+  - action: action_course_info
+
+- story: interactive_story_2
+  steps:
+  - intent: question_courses
+    entities:
+    - course: συστηματα
+
+- story: interactive_story_3
+  steps:
+  - intent: question_courses
+    entities:
+    - course: σηματα συστηματα
+
+- story: interactive_story_4
+  steps:
+  - intent: question_courses
+    entities:
+    - course: σηματα συστηματα
+  - action: action_course_info
+
+- story: interactive_story_5
+  steps:
+  - intent: question_courses
+    entities:
+    - course: σηματα συστηματα
+  - action: action_course_info

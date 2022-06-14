@@ -1,0 +1,18 @@
+digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_greet];
+"-14" [class=ellipsis, label="..."];
+13 [class=active, fontsize=12, label=action_course_info];
+16 [class="intent dashed active", label="  ?  ", shape=rect];
+17 [class=intent, fillcolor=lightblue, label=None, shape=rect, style=filled];
+18 [class="intent active", fillcolor=lightblue, label="σηματα συστηματα", shape=rect, style=filled];
+0 -> "-1"  [class="", key=NONE, label=""];
+0 -> 17  [class="", key=0];
+0 -> 18  [class=active, key=0];
+1 -> "-14"  [class="", key=NONE, label=""];
+13 -> "-1"  [class="", key=NONE, label=""];
+13 -> 16  [class=active, key=NONE, label=""];
+17 -> 1  [class="", key=0];
+18 -> 13  [class=active, key=0];
+}

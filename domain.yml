@@ -1,44 +1,27 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- affirm:
-    use_entities: true
-- deny:
-    use_entities: true
-- give_thanks:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
-- question_history:
-    use_entities: true
-- question_location:
-    use_entities: true
-- question_schedule:
-    use_entities: true
-- question_internship:
-    use_entities: true
-- question_study_guide:
-    use_entities: true
-- question_finish_degree:
-    use_entities: true
-- question_finish_direction:
-    use_entities: true
-- question_amountof_direction:
-    use_entities: true
-- question_contact_secretary:
-    use_entities: true
-- question_schedule_secretary:
-    use_entities: true
-entities: []
-slots: {}
+- question_courses
+- greet
+- goodbye
+- affirm
+- deny
+- give_thanks
+- bot_challenge
+- question_history
+- question_location
+- question_schedule
+- question_internship
+- question_study_guide
+- question_finish_degree
+- question_finish_direction
+- question_amountof_direction
+- question_contact_secretary
+- question_schedule_secretary
+entities:
+- course
 responses:
   utter_greet:
   - text: Καλησπέρα, είμαι η Clio, το επίσημο CSD AUTh bot. Πως μπορώ να σε βοηθήσω σήμερα?
@@ -54,8 +37,8 @@ responses:
   - text: Παρακαλώ!
   utter_answer_about_schedule:
   - text: Μπορείς να βρεις το πρόγραμμα εξετάσεων και μαθημάτων στο [CSD Website](https://www.csd.auth.gr/news/schedules/)
-  utter_answer_about_internship: 
-  - text: Η Πρακτική Άσκηση είναι μάθημα επιλογής του Προπτυχιακού Προγράμματος Σπουδών (NGE-07-02) και αντιστοιχεί σε 5 ECTS χωρίς να υπάρχει βαθμολογία και χωρίς να συνεισφέρει στο βαθμό πτυχίου. Το μάθημα  δηλώνεται από τον φοιτητή για την Πρακτική Άσκηση μέσω ΕΣΠΑ στο εαρινό εξάμηνο, για τις υπόλοιπες στη χρονική περίοδο εκπόνησης αυτής. Περισσότερες πληροφορίες μπορείς να βρεις στο στο [CSD Website](https://www.csd.auth.gr/studies/undergraduate/praktiki-askisi/). 
+  utter_answer_about_internship:
+  - text: Η Πρακτική Άσκηση είναι μάθημα επιλογής του Προπτυχιακού Προγράμματος Σπουδών (NGE-07-02) και αντιστοιχεί σε 5 ECTS χωρίς να υπάρχει βαθμολογία και χωρίς να συνεισφέρει στο βαθμό πτυχίου. Το μάθημα  δηλώνεται από τον φοιτητή για την Πρακτική Άσκηση μέσω ΕΣΠΑ στο εαρινό εξάμηνο, για τις υπόλοιπες στη χρονική περίοδο εκπόνησης αυτής. Περισσότερες πληροφορίες μπορείς να βρεις στο στο [CSD Website](https://www.csd.auth.gr/studies/undergraduate/praktiki-askisi/).
   utter_answer_about_study_guide:
   - text: Μπορείς να βρεις τον οδηγό σπουδών στο [CSD Website](https://www.csd.auth.gr/studies/undergraduate/study-guides/)
   utter_answer_about_finish_degree:
@@ -68,6 +51,5 @@ responses:
   - text: Η ηλεκτρονική διεύθυνση της γραμματείας είναι info@csd.auth.gr και το τηλέφωνο επικοινωνίας 2310998420.
   utter_answer_about_schedule_secretary:
   - text: Η Γραμματεία του Τμήματος εξυπηρετεί τους φοιτητές από Δευτέρα έως Παρασκευή 11:00 – 12:30.
-actions: []
-forms: {}
-e2e_actions: []
+actions:
+- action_course_info
