@@ -9,5 +9,5 @@ services:
     command:
       - run
   app:
-    image: annapapa915/cliobot:1.0.1-deployment
+    image: annapapa915/cliobot:1.0.2-deployment
     expose: [5055]

@@ -13,6 +13,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 
 def get_from_database(course_name):
    print("function: " + course_name)
@@ -69,11 +70,17 @@ class ActionRemainingECTS(Action):
            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         ects = next(tracker.get_latest_entity_values("ects"), None)
+
+        if ects == None:
+         return [SlotSet("ects", None)]
+
         ects = int(ects)
+         
         if ects < 0 or ects > 240:
             msg = f"Δεν είναι αποδεκτός ο αριθμός ECTS που έβαλες."
             dispatcher.utter_message(text=msg)
-            return []
+            return [SlotSet("ects", None)]
 
         deg_ects = 240 - ects
         dispatcher.utter_message(f'Σου μένουν {deg_ects} ECTS για λήψη πτυχίου.')
+        return [SlotSet("ects", None)]
