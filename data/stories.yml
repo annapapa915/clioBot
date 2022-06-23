@@ -1,102 +1,158 @@
 version: "2.0"
 
 stories:
+  - story: thanks path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_history
+      - action: utter_answer_about_history
+      - intent: give_thanks
+      - action: utter_answer_thanks
 
-- story: thanks path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_history
-  - action: utter_answer_about_history
-  - intent: give_thanks
-  - action: utter_answer_thanks
+  - story: thanks path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: give_thanks
+      - action: utter_answer_thanks
 
-- story: thanks path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: give_thanks
-  - action: utter_answer_thanks
+  - story: schedule path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_schedule
+      - action: utter_answer_about_schedule
 
-- story: schedule path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_schedule
-  - action: utter_answer_about_schedule
+  - story: history path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_history
+      - action: utter_answer_about_history
 
-- story: history path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_history
-  - action: utter_answer_about_history
+  - story: location path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_location
+      - action: utter_answer_about_location
 
-- story: location path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_location
-  - action: utter_answer_about_location
+  - story: interactive_story_1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_history
+      - action: utter_answer_about_history
 
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_history
-  - action: utter_answer_about_history
+  - story: internship path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_internship
+      - action: utter_answer_about_internship
 
-- story: internship path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_internship
-  - action: utter_answer_about_internship
+  - story: study guide path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_study_guide
+      - action: utter_answer_about_study_guide
 
-- story: study guide path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_study_guide
-  - action: utter_answer_about_study_guide
+  - story: finish degree path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_finish_degree
+      - action: utter_answer_about_finish_degree
 
-- story: finish degree path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_finish_degree
-  - action: utter_answer_about_finish_degree
+  - story: finish direction path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_finish_direction
+      - action: utter_answer_about_finish_direction
 
-- story: finish direction path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_finish_direction
-  - action: utter_answer_about_finish_direction
+  - story: amount of directions path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_amountof_direction
+      - action: utter_answer_about_amountof_direction
 
-- story: amount of directions path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_amountof_direction
-  - action: utter_answer_about_amountof_direction
+  - story: contact info secretary path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_contact_secretary
+      - action: utter_answer_about_contact_secretary
 
-- story: contact info secretary path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_contact_secretary
-  - action: utter_answer_about_contact_secretary
+  - story: schedule secretary path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_schedule_secretary
+      - action: utter_answer_about_schedule_secretary
 
-- story: schedule secretary path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: question_schedule_secretary
-  - action: utter_answer_about_schedule_secretary
-- story: interactive_story_1
-  steps:
-  - intent: question_courses
-    entities:
-    - course: σηματα συστηματα
-  - action: action_course_info
+  - story: interactive_story_1
+    steps:
+      - intent: question_courses
+        entities:
+          - course: σηματα συστηματα
+      - action: action_course_info
+
+  - story: interactive_story_2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_ects
+      - action: simple_ects_form
+      - active_loop: simple_ects_form
+      - slot_was_set:
+          - requested_slot: ects
+      - slot_was_set:
+          - ects: "29"
+      - slot_was_set:
+          - ects: "29"
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: inform_remaining_ects
+
+  - story: interactive_story_3
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: question_courses
+        entities:
+          - course: πληροφοριακα συστηματα
+      - action: action_course_info
+
+  - story: interactive_story_1
+    steps:
+      - intent: question_courses
+        entities:
+          - course: βιοπληροφορικη
+      - action: action_course_info
+      - intent: question_courses
+        entities:
+          - course: ΑΛΓΟΡΙΘΜΟΙ
+      - action: action_course_info
+
+  - story: interactive_story_2
+    steps:
+      - intent: question_courses
+        entities:
+          - course: αλγοριθμοι
+      - action: action_course_info
+      - intent: question_courses
+        entities:
+          - course: τεχνητη νοημοσυνη
+      - action: action_course_info
+
+  - story: interactive_story_4
+    steps:
+      - intent: question_courses
+        entities:
+          - course: ΓΡΑΦΙΚΑ
+      - action: action_course_info

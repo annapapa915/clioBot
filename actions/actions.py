@@ -47,7 +47,7 @@ class ActionCourseInfo(Action):
         print(current_course)
             
         if not current_course:
-            msg = f"Δεν έχω απάντηση."
+            msg = f"Δεν αναγνωρίζω αυτό το μάθημα."
             dispatcher.utter_message(text=msg)
             return []
 
@@ -59,3 +59,21 @@ class ActionCourseInfo(Action):
             dispatcher.utter_message(f'Όνομα: {course_info[1]} \nECTS: {course_info[2]} \nΤύπος: {course_info[3]} \nΠεριεχόμενο: {course_info[4]}')
 
 
+class ActionRemainingECTS(Action):
+
+    def name(self) -> Text:
+       return "inform_remaining_ects"
+
+    def run(self, dispatcher: CollectingDispatcher,
+           tracker: Tracker,
+           domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        ects = next(tracker.get_latest_entity_values("ects"), None)
+        ects = int(ects)
+        if ects < 0 or ects > 240:
+            msg = f"Δεν είναι αποδεκτός ο αριθμός ECTS που έβαλες."
+            dispatcher.utter_message(text=msg)
+            return []
+
+        deg_ects = 240 - ects
+        dispatcher.utter_message(f'Σου μένουν {deg_ects} ECTS για λήψη πτυχίου.')

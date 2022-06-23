@@ -15,3 +15,19 @@ rules:
     steps:
       - intent: question_courses
       - action: action_course_info
+
+  - rule: Activate ECTS Form
+    steps:
+      - intent: question_ects
+      - action: simple_ects_form
+      - active_loop: simple_ects_form
+
+  - rule: Submit ECTS Form
+    condition:
+      - active_loop: simple_ects_form
+    steps:
+      - action: simple_ects_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: inform_remaining_ects
