@@ -1,31 +1,32 @@
-version: '2.0'
+version: "2.0"
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- question_courses
-- greet
-- inform_ects
-- question_ects
-- goodbye
-- affirm
-- deny
-- give_thanks
-- bot_challenge
-- question_history
-- question_location
-- question_schedule
-- question_internship
-- question_study_guide
-- question_finish_degree
-- question_finish_direction
-- question_amountof_direction
-- question_contact_secretary
-- question_schedule_secretary
+  - question_courses
+  - greet
+  - formal_greet
+  - inform_ects
+  - question_ects
+  - goodbye
+  - affirm
+  - deny
+  - give_thanks
+  - bot_challenge
+  - question_history
+  - question_location
+  - question_schedule
+  - question_internship
+  - question_study_guide
+  - question_finish_degree
+  - question_finish_direction
+  - question_amountof_direction
+  - question_contact_secretary
+  - question_schedule_secretary
 entities:
-- course
-- courses
-- ects
+  - course
+  - courses
+  - ects
 slots:
   ects:
     type: text
@@ -35,44 +36,44 @@ slots:
     influence_conversation: false
 responses:
   utter_formal_greet:
-  - text: Καλησπέρα, είμαι η Clio, το επίσημο CSD AUTh bot. Πως μπορώ να σε βοηθήσω σήμερα?
+    - text: Καλησπέρα, είμαι η Clio, το επίσημο CSD AUTh bot. Πως μπορώ να σε βοηθήσω σήμερα?
   utter_greet:
-  - text: Γεια!
+    - text: Γεια!
   utter_goodbye:
-  - text: Αντίο!
+    - text: Αντίο!
   utter_iamabot:
-  - text: Είμαι ένα bot, φτιαγμένο με Rasa.
+    - text: Είμαι ένα bot, φτιαγμένο με Rasa.
   utter_answer_about_history:
-  - text: Το Τμήμα Πληροφορικής της Σχολής Θετικών Επιστημών του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης ιδρύθηκε το 1991 και δέχεται φοιτητές/φοιτήτριες από το ακαδημαϊκό έτος 1992-93.
+    - text: Το Τμήμα Πληροφορικής της Σχολής Θετικών Επιστημών του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης ιδρύθηκε το 1991 και δέχεται φοιτητές/φοιτήτριες από το ακαδημαϊκό έτος 1992-93.
   utter_answer_about_location:
-  - text: Το Τμήμα διαθέτει εγκαταστάσεις τόσο στο κέντρο της πόλης, εντός της Πανεπιστημιούπολης του ΑΠΘ, όσο και στην Καλαμαριά.
+    - text: Το Τμήμα διαθέτει εγκαταστάσεις τόσο στο κέντρο της πόλης, εντός της Πανεπιστημιούπολης του ΑΠΘ, όσο και στην Καλαμαριά.
   utter_answer_thanks:
-  - text: Παρακαλώ!
+    - text: Παρακαλώ!
   utter_answer_about_schedule:
-  - text: Μπορείς να βρεις το πρόγραμμα εξετάσεων και μαθημάτων στο https://www.csd.auth.gr/news/schedules/
+    - text: Μπορείς να βρεις το πρόγραμμα εξετάσεων και μαθημάτων στο https://www.csd.auth.gr/news/schedules/
   utter_answer_about_internship:
-  - text: Η Πρακτική Άσκηση είναι μάθημα επιλογής του Προπτυχιακού Προγράμματος Σπουδών (NGE-07-02) και αντιστοιχεί σε 5 ECTS χωρίς να υπάρχει βαθμολογία και χωρίς να συνεισφέρει στο βαθμό πτυχίου. Το μάθημα  δηλώνεται από τον φοιτητή για την Πρακτική Άσκηση μέσω ΕΣΠΑ στο εαρινό εξάμηνο, για τις υπόλοιπες στη χρονική περίοδο εκπόνησης αυτής. Περισσότερες πληροφορίες μπορείς να βρεις στο https://www.csd.auth.gr/studies/undergraduate/praktiki-askisi/.
+    - text: Η Πρακτική Άσκηση είναι μάθημα επιλογής του Προπτυχιακού Προγράμματος Σπουδών (NGE-07-02) και αντιστοιχεί σε 5 ECTS χωρίς να υπάρχει βαθμολογία και χωρίς να συνεισφέρει στο βαθμό πτυχίου. Το μάθημα  δηλώνεται από τον φοιτητή για την Πρακτική Άσκηση μέσω ΕΣΠΑ στο εαρινό εξάμηνο, για τις υπόλοιπες στη χρονική περίοδο εκπόνησης αυτής. Περισσότερες πληροφορίες μπορείς να βρεις στο https://www.csd.auth.gr/studies/undergraduate/praktiki-askisi/.
   utter_answer_about_study_guide:
-  - text: Μπορείς να βρεις τον οδηγό σπουδών στο https://www.csd.auth.gr/studies/undergraduate/study-guides/
+    - text: Μπορείς να βρεις τον οδηγό σπουδών στο https://www.csd.auth.gr/studies/undergraduate/study-guides/
   utter_answer_about_finish_degree:
-  - text: Για την ολοκλήρωση του πτυχίου χρειάζεσαι 225 ECTS μαθημάτων, τα 15 ECTS της πρακτικής και την ολοκλήρωση μιας ροής.
+    - text: Για την ολοκλήρωση του πτυχίου χρειάζεσαι 225 ECTS μαθημάτων, τα 15 ECTS της πρακτικής και την ολοκλήρωση μιας ροής.
   utter_answer_about_finish_direction:
-  - text: Για να κατοχυρώσεις μια ροή χρειάζεται να περάσεις τουλάχιστον 6 από τα ΥΚΕ (Υποχρεωτικά Κατά Επιλογήν) μαθήματα της ροής.
+    - text: Για να κατοχυρώσεις μια ροή χρειάζεται να περάσεις τουλάχιστον 6 από τα ΥΚΕ (Υποχρεωτικά Κατά Επιλογήν) μαθήματα της ροής.
   utter_answer_about_amountof_direction:
-  - text: Στο πτυχίο μπορούν να αναγράφονται μέχρι 2 ροές.
+    - text: Στο πτυχίο μπορούν να αναγράφονται μέχρι 2 ροές.
   utter_answer_about_contact_secretary:
-  - text: Η ηλεκτρονική διεύθυνση της γραμματείας είναι info@csd.auth.gr και το τηλέφωνο επικοινωνίας 2310998420.
+    - text: Η ηλεκτρονική διεύθυνση της γραμματείας είναι info@csd.auth.gr και το τηλέφωνο επικοινωνίας 2310998420.
   utter_answer_about_schedule_secretary:
-  - text: Η Γραμματεία του Τμήματος εξυπηρετεί τους φοιτητές από Δευτέρα έως Παρασκευή 11:00 – 12:30.
+    - text: Η Γραμματεία του Τμήματος εξυπηρετεί τους φοιτητές από Δευτέρα έως Παρασκευή 11:00 – 12:30.
   utter_ask_ects:
-  - text: Πόσα ECTS έχεις συγκεντρώσει μέχρι στιγμής?
+    - text: Πόσα ECTS έχεις συγκεντρώσει μέχρι στιγμής?
 actions:
-- action_course_info
-- inform_remaining_ects
-- utter_greet
+  - action_course_info
+  - inform_remaining_ects
+  - utter_greet
 forms:
   simple_ects_form:
     required_slots:
       ects:
-      - entity: ects
-        type: from_entity
+        - entity: ects
+          type: from_entity

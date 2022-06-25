@@ -1,5 +1,8 @@
 version: "2.0"
 nlu:
+  - intent: formal_greet
+    examples: |
+      - pGLdQUM2DV
   - intent: greet
     examples: |
       - γεια

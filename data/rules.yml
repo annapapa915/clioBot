@@ -1,6 +1,11 @@
 version: "2.0"
 
 rules:
+  - rule: Always begin with formal greet
+    steps:
+      - intent: formal_greet
+      - action: utter_formal_greet
+
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
